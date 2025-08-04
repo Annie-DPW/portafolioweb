@@ -132,7 +132,7 @@ html::-webkit-scrollbar-thumb {
 
 /*home*/
 .home {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(46, 36, 34, 0.167)), url(/img/fondf.jpg);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(46, 36, 34, 0.167)), url(img/fondf.jpg);
     background-size: cover;
     height: 100vh;
     color: #fff;
@@ -437,7 +437,7 @@ section {
 
 /*skills */
  .contenedor-skills {
-  background: linear-gradient(#c54b4b58, rgba(33, 16, 16, 0.93)), url("/img/ski.jpg") no-repeat center center/cover;
+  background: linear-gradient(#c54b4b58, rgba(33, 16, 16, 0.93)), url("img/ski.jpg") no-repeat center center/cover;
   background-attachment: fixed;
   padding: 100px 20px;
   color: #fff;
@@ -654,7 +654,7 @@ section {
 /*contacto*/
 
 .contact {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.13), rgba(0, 0, 0, 0.199)), url(/img/08.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.13), rgba(0, 0, 0, 0.199)), url(img/08.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -746,4 +746,5 @@ section {
     font-size: 16px;
     color: var(--main-color);
 }
+
 
