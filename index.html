@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Portafolio Web</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="header">
+  <a href="#home" class="logo">Han</a>
+    <nav class="navbar" id="navbar">
+    <a href="#home" class="active" onclick="seleccionar(this)">INICIO</a>
+    <a href="#about" onclick="seleccionar(this)">SOBRE MI</a>
+    <a href="#skills" onclick="seleccionar(this)">HABILIDADES</a>
+    <a href="#portafolio" onclick="seleccionar(this)">PORTAFOLIO</a>
+    <a href="#contact" onclick="seleccionar(this)">CONTACTO</a>
+    <a href="login.html">Iniciar Sesión</a>
+    </nav>
+
+  <div id="menu-icon" onclick="toggleMenu()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+</header>
+
+  <section class="home" id="home">
+    
+        <div class="home-content">
+            <h1>Hola, Soy Annette <br> y soy</h1>
+            <h3 data-text="Desarrolladora web">Desarrolladora web</h3>
+            <p>LO IMPORTANTE ES VER AQUELLO QUE RESULTA INVISIBLE PARA LOS DEMÁS</p>
+
+            <div class="social-icon">
+                <a
+                    href="https://www.facebook.com/people/Han-Cl/pfbid0pLLaSgSb3JrzAU7bwt9ZY1VPgsm8zZKoStNufsUuZu9c7JbYReFjsQ1Q346Ae65Al/?mibextid=ZbWKwL"><i
+                        class="fa-brands fa-facebook"></i></a>
+                <a href="https://wa.link/86vimn"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+                <a href="*"><i class="fa-brands fa-github"></i></a>
+            </div>
+
+            <div class="home-btn">
+                <a href="#contact" class="btn">Contratar</a>
+                <a href="#about" class="btn btn2">Ver más</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION S O B R E M I -->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="/img/01.jpeg" alt="Imagen de la desarrolladora">
+        </div>
+        <div class="about-content">
+            <h1 class="heading"><span>Acerca de</span> mi</h1>
+            <h2>Desarrollo web</h2>
+            <p>Me gusta mucho el diseño y presto mucha atención a los pequeños detalles.
+                Por supuesto, también me gusta mucho la moda, crear diseños digitales y dibujar.
+                Lo que me llevó a compaginar mis intereses y mi profesión, la cual voy desarrollando actualmente.
+            </p>
+            <div class="about-btn">
+                <a href="#" class="btn">Descargar CV</a>
+            </div>
+            <div class="social-icon">
+                <a
+                    href="https://www.facebook.com/people/Han-Cl/pfbid0pLLaSgSb3JrzAU7bwt9ZY1VPgsm8zZKoStNufsUuZu9c7JbYReFjsQ1Q346Ae65Al/?mibextid=ZbWKwL"><i
+                        class="fa-brands fa-facebook"></i></a>
+                <a href="https://wa.link/86vimn"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+        <!-- HANILIDADES -->
+
+
+<div class="contenedor-skills" id="skills">
+  <h3>HABILIDADES</h3>
+
+  <div class="skill">
+    <div class="info">
+      <p><span class="lista"></span>HTML & CSS</p>
+      <span class="porcentaje">95%</span>
+    </div>
+    <div class="barra">
+      <div class="barra-progreso1"></div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <div class="info">
+      <p><span class="lista"></span>JavaScript</p>
+      <span class="porcentaje">90%</span>
+    </div>
+    <div class="barra">
+      <div class="barra-progreso2"></div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <div class="info">
+      <p><span class="lista"></span>Bases de Datos</p>
+      <span class="porcentaje">90%</span>
+    </div>
+    <div class="barra">
+      <div class="barra-progreso3"></div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <div class="info">
+      <p><span class="lista"></span>Photoshop</p>
+      <span class="porcentaje">85%</span>
+    </div>
+    <div class="barra">
+      <div class="barra-progreso4"></div>
+    </div>
+  </div>
+</div>
+
+    <!-- PORTAFOLIO -->
+<section class="portafolio" id="portafolio">
+  <div class="content-section">
+    <h2><span>Portafolio</span></h2>
+    <p>Estos son algunos de mis proyectos más recientes, donde he aplicado mis habilidades en desarrollo web y diseño.</p>
+
+    <div class="galeria" id="galeria">
+      <a href="https://www.canva.com/design/DAGllWTZ0ek/5KNNx3Izzu5_2R6ef296og/edit" target="_blank" class="proyecto">
+        <img src="/img/BASE05.jpg" alt="Proyecto 2">
+        <div class="overlay">
+          <h3>sem 01</h3>
+          <p>HTML_CSS_JS</p>
+        </div>
+      </a>
+      <a href="pdf/sem03.pdf" target="_blank" class="proyecto">
+        <img src="/img/BASE05.jpg" alt="Proyecto 2">
+        <div class="overlay">
+          <h3>sem 02</h3>
+          <p>HTML_CSS_JS</p>
+        </div>
+      </a>
+
+      <a href="https://docs.google.com/document/d/1PL6-B60KgZ3es78rjmdRorlCScP5E_E57SwQ9cGUYJU/edit?usp=sharing" target="_blank" class="proyecto">
+        <img src="/img/BASE05.jpg" alt="Proyecto 2">
+        <div class="overlay">
+          <h3>sem 03</h3>
+          <p>HTML_CSS_JS</p>
+        </div>
+      </a>
+      <a href="pdf/sem05.pdf" target="_blank" class="proyecto">
+        <img src="https://www.canva.com/design/DAGvJV_KTsM/U_gXxLvBaQ1jNMRKKVTSCg/edit" alt="Proyecto 2">
+        <div class="overlay">
+          <h3>sem 04</h3>
+          <p>HTML_CSS_JS</p>
+        </div>
+      </a>
+      <a href="https://docs.google.com/document/d/1TqqRIHsfCw_EPBMD7NglAT2Tucn7sjpPBOnmgocxvi8/edit?usp=sharing" target="_blank" class="proyecto">
+        <img src="/img/BASE05.jpg" alt="Proyecto 2">
+        <div class="overlay">
+          <h3>sem 05</h3>
+          <p>HTML_CSS_JS</p>
+        </div>
+      </a>
+      <a href="https://docs.google.com/document/d/1qCM67hC9yidNhXHR5DE2oPbgy6XDwVN7kzzxYdFKuRw/edit?usp=sharing" target="_blank" class="proyecto">
+        <img src="/img/BASE05.jpg" alt="Proyecto 2">
+        <div class="overlay">
+          <h3>sem 06</h3>
+          <p>HTML_CSS_JS</p>
+        </div>
+      </a>
+      <a href="https://docs.google.com/document/d/1oCBL3_VTgmcm2FEZidm4WrpmPivaOde1yWmb0WSr0mc/edit?usp=sharing" target="_blank" class="proyecto">
+        <img src="/img/BASE05.jpg" alt="Proyecto 2">
+        <div class="overlay">
+          <h3>sem 07</h3>
+          <p>HTML_CSS_JS</p>
+        </div>
+      </a>
+      <a href="https://docs.google.com/document/d/1__sQv7Vn2b-SIrMKu2A8-p8VXI2wpNW-SDz-ExLl5Io/edit?usp=sharing" target="_blank" class="proyecto">
+        <img src="/img/BASE05.jpg" alt="Proyecto 2">
+        <div class="overlay">
+          <h3>sem 08</h3>
+          <p>HTML_CSS_JS</p>
+        </div>
+      </a>
+      
+      <a href="https://www.canva.com/design/DAGut6Mg6K4/8YqgwMPYDje2yDwieB9_2g/edit" target="_blank" class="proyecto">
+        <img src="/img/BASE05.jpg" alt="Proyecto 2">
+        <div class="overlay">
+          <h3>sem 09</h3>
+          <p>HTML_CSS_JS</p>
+        </div>
+      </a>
+      <a href="https://docs.google.com/document/d/12_s0bw8UTgFGSgigRJYgc8zPFXxNPQa20L3dKgs3sLo/edit?usp=sharing" target="_blank" class="proyecto">
+        <img src="/img/BASE05.jpg" alt="Proyecto 2">
+        <div class="overlay">
+          <h3>sem 15</h3>
+          <p>HTML_CSS_JS</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+    
+    <section class="contact" id="contact">
+        <h2 class="heading">CONTACTA<span>ME</span></h2>
+        <form action="#">
+
+            <div class="input-group">
+                <div class="input-box">
+                    <input type="text" placeholder="Nombres">
+                    <input type="email" placeholder="Correo">
+                </div>
+                <div class="input-box">
+                    <input type="number" placeholder=" Numero ">
+                    <input type="text" placeholder="Asunto">
+                </div>
+            </div>
+
+            <div class="input-group-2">
+                <textarea name="" id="" placeholder="Mensaje " cols="30" rows="10"></textarea>
+                <input type="submit" value="Enviar mensaje" class="btn">
+            </div>
+        </form>
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="social-icons">
+            <a
+                href="https://www.facebook.com/people/Han-Cl/pfbid0pLLaSgSb3JrzAU7bwt9ZY1VPgsm8zZKoStNufsUuZu9c7JbYReFjsQ1Q346Ae65Al/?mibextid=ZbWKwL">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://wa.link/86vimn">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="https://www.instagram.com">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+        <ul class="list">
+            <li>
+                <a href="#">Inicio</a>
+            </li>
+
+            <li>
+                <a href="#about">Acerca de mi</a>
+            </li>
+            <li>
+                <a href="#skills">Habilidades</a>
+            </li>
+
+            <li>
+                <a href="#portafolio">Portafolio</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contacto</a>
+            </li>
+        </ul>
+        <p class="copyright">
+            © Annette Lozano Caso / Derechos Reservados
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

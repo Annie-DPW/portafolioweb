@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Administrador de Proyectos</title>
+  <link rel="stylesheet" href="/css/actividades.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    .proyecto {
+      position: relative;
+      display: block;
+      margin-bottom: 15px;
+    }
+    .proyecto img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border-radius: 0 0 10px 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container my-5">
+    <h1 class="text-center mb-4">Panel de Administración</h1>
+    <div class="text-center mb-4">
+      <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#uploadModal">➕ Subir Proyecto</button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-danger text-white">
+            <h5 class="modal-title" id="uploadModalLabel">Subir Nuevo Proyecto</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="projectName" class="form-label">Nombre del proyecto</label>
+              <input type="text" id="projectName" class="form-control" placeholder="Ingresa el nombre del proyecto" />
+            </div>
+            <div class="mb-3">
+              <label for="projectDesc" class="form-label">Descripción</label>
+              <textarea id="projectDesc" class="form-control" rows="3" placeholder="Breve descripción del proyecto"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="projectLink" class="form-label">Enlace del archivo PDF</label>
+              <input type="url" id="projectLink" class="form-control" placeholder="https://..." />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button class="btn btn-danger" onclick="addProject()">Subir Proyecto</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="projectList" class="mt-5">
+      <h2>Proyectos Subidos</h2>
+    </div>
+
+    <hr class="my-5" />
+
+    <!-- PORTAFOLIO -->
+    <section class="portafolio" id="portafolio">
+      <div class="content-section">
+        <h2><span>Portafolio</span></h2>
+        <p>Estos son algunos de los proyectos subidos con sus enlaces:</p>
+        <div class="row" id="galeria"></div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    let projects = [];
+
+    window.addEventListener("load", () => {
+      const stored = localStorage.getItem("projects");
+      if (stored) {
+        projects = JSON.parse(stored);
+        renderProjects();
+      }
+    });
+
+    function renderProjects() {
+      const container = document.getElementById("projectList");
+      container.innerHTML = '<h2>Proyectos Subidos</h2>';
+      projects.forEach((project, index) => {
+        container.innerHTML += `
+          <div class="project mb-4 p-3 border rounded">
+            <strong>${project.name}</strong>
+            <p>${project.desc}</p>
+            <p>📎 Enlace: <a href="${project.fileLink}" target="_blank">${project.fileLink}</a></p>
+            <a href="${project.fileLink}" target="_blank" class="btn btn-sm btn-primary me-2">📄 Ver</a>
+            <a href="${project.fileLink}" download class="btn btn-sm btn-success me-2">⬇️ Descargar</a>
+            <button class="btn btn-sm btn-warning me-2" onclick="editProject(${index})">✏️ Editar</button>
+            <button class="btn btn-sm btn-danger" onclick="deleteProject(${index})">🗑️ Eliminar</button>
+          </div>
+        `;
+      });
+
+      renderPortafolio(); // Actualiza también el portafolio
+    }
+
+    function renderPortafolio() {
+      const galeria = document.getElementById("galeria");
+      galeria.innerHTML = "";
+      projects.forEach((project, index) => {
+        galeria.innerHTML += `
+          <div class="col-md-4 mb-4">
+            <a href="${project.fileLink}" target="_blank" class="proyecto">
+              <img src="/img/BASE05.jpg" alt="Proyecto ${index + 1}" />
+              <div class="overlay">
+                <h5>${project.name}</h5>
+                <p>${project.desc}</p>
+              </div>
+            </a>
+          </div>
+        `;
+      });
+    }
+
+    function addProject() {
+      const name = document.getElementById("projectName").value.trim();
+      const desc = document.getElementById("projectDesc").value.trim();
+      const link = document.getElementById("projectLink").value.trim();
+
+      if (!name || !desc || !link) {
+        alert("Completa todos los campos.");
+        return;
+      }
+
+      projects.push({ name, desc, fileLink: link });
+      saveProjects();
+      renderProjects();
+      resetForm();
+      bootstrap.Modal.getInstance(document.getElementById("uploadModal")).hide();
+    }
+
+    function editProject(index) {
+      const project = projects[index];
+      const newName = prompt("Nuevo nombre del proyecto:", project.name);
+      const newDesc = prompt("Nueva descripción:", project.desc);
+      const newLink = prompt("Nuevo enlace PDF:", project.fileLink);
+      if (newName && newDesc && newLink) {
+        projects[index] = { name: newName, desc: newDesc, fileLink: newLink };
+        saveProjects();
+        renderProjects();
+      }
+    }
+
+    function deleteProject(index) {
+      if (confirm("¿Estás seguro de eliminar este proyecto?")) {
+        projects.splice(index, 1);
+        saveProjects();
+        renderProjects();
+      }
+    }
+
+    function saveProjects() {
+      localStorage.setItem("projects", JSON.stringify(projects));
+    }
+
+    function resetForm() {
+      document.getElementById("projectName").value = "";
+      document.getElementById("projectDesc").value = "";
+      document.getElementById("projectLink").value = "";
+    }
+  </script>
+</body>
+</html>

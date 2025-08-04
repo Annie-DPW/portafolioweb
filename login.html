@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Iniciar Sesión</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Acceso al Administrador</h2>
+    <form id="loginForm">
+      <input type="text" id="usuario" placeholder="Usuario" required>
+      <input type="password" id="clave" placeholder="Contraseña" required>
+      <button type="submit">Entrar</button>
+    </form>
+    <p id="mensaje" style="color: red; margin-top: 10px;"></p>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const usuario = document.getElementById("usuario").value;
+      const clave = document.getElementById("clave").value;
+      const mensaje = document.getElementById("mensaje");
+
+      if (usuario === "admin" && clave === "1234") {
+        // Redirigir al panel del administrador
+        window.location.href = "actividades.html";
+      } else {
+        // Mostrar mensaje de error
+        mensaje.textContent = "Usuario o contraseña incorrectos.";
+      }
+    
+    if (usuario === "usuario" && clave === "5678") {
+        // Redirigir al panel del administrador
+        window.location.href = "index.html";
+      } else {
+        // Mostrar mensaje de error
+        mensaje.textContent = "Usuario o contraseña incorrectos.";
+      }
+    });
+    
+  </script>
+</body>
+</html>
