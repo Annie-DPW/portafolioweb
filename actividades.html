@@ -45,6 +45,7 @@
     </div>
 
     <div id="projectList" class="mt-5"></div>
+
     <section class="portafolio mt-5" id="portafolio">
       <div class="content-section">
         <h2 class="text-center"><span>Portafolio</span></h2>
@@ -106,20 +107,19 @@
           </div>
         `;
 
-        // Vista galería
-     // Vista galería (sin imagen de fondo)
-galeria.innerHTML += `
-  <div class="col-md-4 mb-4">
-    <a href="${project.fileData}" target="_blank" class="proyecto" style="background: #f8f9fa; border-radius: 10px; padding: 20px; text-decoration: none; display: block; box-shadow: 0 0 10px rgba(0,0,0,0.1); height: 100%;">
-      <div class="overlay" style="position: static; background: none; color: #212529;">
-        <h5 style="margin-bottom: 10px;">${project.name}</h5>
-        <p>${project.desc}</p>
-      </div>
-    </a>
-  </div>
-`;
-
-
+        // Vista galería (sin imagen de fondo)
+        galeria.innerHTML += `
+          <div class="col-md-4 mb-4">
+            <a href="${project.fileData}" target="_blank" class="proyecto" style="background: #f8f9fa; border-radius: 10px; padding: 20px; text-decoration: none; display: block; box-shadow: 0 0 10px rgba(0,0,0,0.1); height: 100%;">
+              <div class="overlay" style="position: static; background: none; color: #212529;">
+                <h5 style="margin-bottom: 10px;">${project.name}</h5>
+                <p>${project.desc}</p>
+              </div>
+            </a>
+          </div>
+        `;
+      });
+    }
 
     function editProject(index) {
       const project = projects[index];
