@@ -95,22 +95,25 @@
       galeria.innerHTML = "";
 
       projects.forEach((project, index) => {
+        const blob = dataURLtoBlob(project.fileData);
+        const blobUrl = URL.createObjectURL(blob);
+
         // Vista admin
         list.innerHTML += `
           <div class="project mb-4 p-3 border rounded">
             <strong>${project.name}</strong>
             <p>${project.desc}</p>
-            <a href="${project.fileData}" target="_blank" class="btn btn-sm btn-primary me-2">📄 Ver</a>
-            <a href="${project.fileData}" download="${project.name}.pdf" class="btn btn-sm btn-success me-2">⬇️ Descargar</a>
+            <a href="${blobUrl}" target="_blank" class="btn btn-sm btn-primary me-2">📄 Ver</a>
+            <a href="${blobUrl}" download="${project.name}.pdf" class="btn btn-sm btn-success me-2">⬇️ Descargar</a>
             <button class="btn btn-sm btn-warning me-2" onclick="editProject(${index})">✏️ Editar</button>
             <button class="btn btn-sm btn-danger" onclick="deleteProject(${index})">🗑️ Eliminar</button>
           </div>
         `;
 
-        // Vista galería (sin imagen de fondo)
+        // Vista galería
         galeria.innerHTML += `
           <div class="col-md-4 mb-4">
-            <a href="${project.fileData}" target="_blank" class="proyecto" style="background: #f8f9fa; border-radius: 10px; padding: 20px; text-decoration: none; display: block; box-shadow: 0 0 10px rgba(0,0,0,0.1); height: 100%;">
+            <a href="${blobUrl}" target="_blank" class="proyecto" style="background: #f8f9fa; border-radius: 10px; padding: 20px; text-decoration: none; display: block; box-shadow: 0 0 10px rgba(0,0,0,0.1); height: 100%;">
               <div class="overlay" style="position: static; background: none; color: #212529;">
                 <h5 style="margin-bottom: 10px;">${project.name}</h5>
                 <p>${project.desc}</p>
@@ -119,6 +122,17 @@
           </div>
         `;
       });
+    }
+
+    function dataURLtoBlob(dataURL) {
+      const parts = dataURL.split(';base64,');
+      const mime = parts[0].split(':')[1];
+      const binary = atob(parts[1]);
+      let array = [];
+      for (let i = 0; i < binary.length; i++) {
+        array.push(binary.charCodeAt(i));
+      }
+      return new Blob([new Uint8Array(array)], { type: mime });
     }
 
     function editProject(index) {
